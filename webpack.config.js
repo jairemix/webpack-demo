@@ -34,7 +34,10 @@ module.exports = (env) => {
       minimize: false,
     },
     plugins: [
-      new HTMLWebpackPlugin({ template: './src/index.html' }),
+      new HTMLWebpackPlugin({
+        template: './src/index.html',
+        csp: isProd ? require('./webpack-config/csp') : '',
+      }),
       new webpack.DefinePlugin({
         WEBPACK_ENV: {
           DEBUG: JSON.stringify(!isProd),
