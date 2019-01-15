@@ -2,6 +2,8 @@ import { join } from 'lodash-es';
 import './index.css';
 import { environment } from './env/env';
 
+declare const WEBPACK_ENV;
+
 console.log('environment', environment);
 
 document.body.appendChild((() => {
