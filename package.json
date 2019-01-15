@@ -7,7 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "serve": "webpack-dev-server"
+    "build:prod": "webpack --env.production",
+    "serve": "webpack-dev-server",
+    "serve:prod": "webpack-dev-server --env.production"
   },
   "keywords": [],
   "author": "",
