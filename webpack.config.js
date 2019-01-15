@@ -3,6 +3,10 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = (env) => {
+
+  const NODE_ENV = env && env.NODE_ENV;
+  console.log('🗻 NODE_ENV', NODE_ENV);
+
   const isProd = env && env.production;
   const mode = isProd ? 'production' : 'development';
   console.log(`🗻 environment: ${mode}\n`);
@@ -27,7 +31,7 @@ module.exports = (env) => {
     },
     mode,
     optimization: {
-      minimize: false
+      minimize: false,
     },
     plugins: [
       new HTMLWebpackPlugin({ template: './src/index.html' }),

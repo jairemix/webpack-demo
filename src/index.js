@@ -1,5 +1,8 @@
 import { join } from 'lodash-es';
 import './index.css';
+const environment = require(`./env/env.${WEBPACK_ENV.MODE}`).environment;
+
+console.log('environment', environment);
 
 function component() {
   let element = document.createElement('div');
@@ -12,7 +15,8 @@ function component() {
 
 document.body.appendChild(component());
 
-console.log('WEBPACK_ENV', WEBPACK_ENV);
+// console.log('WEBPACK_ENV', WEBPACK_ENV);
+// console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
 if (WEBPACK_ENV.DEBUG) {
   document.body.appendChild((() => {
@@ -27,4 +31,3 @@ document.body.appendChild((() => {
   element.innerHTML = `Mode is ${WEBPACK_ENV.MODE}`;
   return element;
 })());
-
