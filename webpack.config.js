@@ -16,7 +16,7 @@ module.exports = (env) => {
   const hasSourceMaps = !isProd;
   console.log('🗺  hasSourceMaps:', hasSourceMaps);
 
-  console.log(' ');
+  console.log(' '); // new line
 
   return {
     devtool: hasSourceMaps && 'source-map', // 'inline-source-map'
@@ -29,7 +29,7 @@ module.exports = (env) => {
     module: {
       rules: [
         require('./webpack-config/ts-rules'),
-        require('./webpack-config/css-rules'),
+        require('./webpack-config/scss-rules')(hasSourceMaps),
       ],
     },
     mode,

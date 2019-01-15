@@ -1,19 +1,22 @@
-import { join } from 'lodash-es';
-import './index.css';
-import { environment } from './env/env';
+/// <reference path="./types/globals.d.ts" />
 
-declare const WEBPACK_ENV;
+import './app.scss';
+import { join } from 'lodash-es';
+import * as $ from 'jquery';
+import { environment } from './env/env';
 
 console.log('environment', environment);
 
-document.body.appendChild((() => {
-  const element = document.createElement('div');
-  element.className = 'wb-title';
-
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = join(['It', 'works!'], ' ');
-  return element;
-})());
+(() => {
+  const title = join(['It', 'works!'], ' ');
+  const $block = $(`
+    <header class="p-4">
+      <div class="wb-title">${title}</div>
+      <button class="btn btn-block btn-lg btn-primary">Bootstrap Button</button>
+    </header>
+  `);
+  $('body').append($block);
+})();
 
 // console.log('WEBPACK_ENV', WEBPACK_ENV);
 // console.log('process.env.NODE_ENV', process.env.NODE_ENV);
