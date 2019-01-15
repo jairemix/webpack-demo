@@ -1,6 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env) => {
 
@@ -23,10 +24,7 @@ module.exports = (env) => {
     },
     module: {
       rules: [
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
-        },
+        require('./webpack-config/css-rules'),
       ],
     },
     mode,
@@ -43,6 +41,10 @@ module.exports = (env) => {
           DEBUG: JSON.stringify(!isProd),
           MODE: JSON.stringify(mode),
         },
+      }),
+      new MiniCSSExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[id].css',
       }),
     ],
   };
