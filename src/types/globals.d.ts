@@ -3,7 +3,8 @@ declare const WEBPACK_ENV: {
   MODE: 'production' | 'development';
 };
 
-declare module '*.gif';
+declare module '*.json';
+declare module '*.svg';
 declare module '*.jpg';
 declare module '*.png';
 declare module '*.svg';
