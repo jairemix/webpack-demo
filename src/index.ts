@@ -1,8 +1,9 @@
 /// <reference path="./types/globals.d.ts" />
 
 import './app.scss';
-import blueSquare from './images/blue-square.jpg';
+import blueSquareImg from './images/blue-square.jpg';
 import catSvg from '@fortawesome/fontawesome-free/svgs/solid/cat.svg';
+
 import { join } from 'lodash-es';
 import * as $ from 'jquery';
 import { environment } from './env/env';
@@ -60,7 +61,7 @@ const $bodyWrap = $('body .wb-wrap');
     </section>
     <section class="my-4">
       <h4>This is an imported image</h4>
-      <img class="wb-image" src="${blueSquare}" />
+      <img class="wb-image" src="${blueSquareImg}" />
     </section>
     <section class="my-4">
       <h4>This is an image imported with CSS</h4>
@@ -71,8 +72,17 @@ const $bodyWrap = $('body .wb-wrap');
       <span class="fas fa-star"></span>
     </section>
     <section class="my-4">
-      <h4>This is an svg Font Awesome icon</h4>
+      <h4>This is an SVG Font Awesome icon</h4>
       <img class="wb-image" src="${catSvg}" />
+    </section>
+    <section class="my-4">
+      <h4>This is an imported font</h4>
+      <p class="wb-reanie-beanie">
+        Reanie Beanie sourced from
+        <a href="https://fonts.google.com/specimen/Reenie+Beanie?selection.family=Reenie+Beanie" target="_blank">
+          Google Fonts
+        </a>
+      </p>
     </section>
   `);
   $bodyWrap.append($sections);
