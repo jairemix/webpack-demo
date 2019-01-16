@@ -4,6 +4,7 @@ module.exports = (hasSourceMaps) => {
   return {
     test:/\.(s*)css$/,
     use: [
+      // extract CSS instead of using 'style-loader'
       {
         loader: MiniCSSExtractPlugin.loader,
         options: {
@@ -14,6 +15,13 @@ module.exports = (hasSourceMaps) => {
       },
       {
         loader: 'css-loader',
+        options: {
+          sourceMap: hasSourceMaps,
+        },
+      },
+      // fixes sass paths for resources
+      {
+        loader: 'resolve-url-loader',
         options: {
           sourceMap: hasSourceMaps,
         },

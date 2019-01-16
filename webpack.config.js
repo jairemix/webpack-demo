@@ -30,7 +30,8 @@ module.exports = (env) => {
       rules: [
         require('./webpack-config/ts-rules'),
         require('./webpack-config/scss-rules')(hasSourceMaps),
-        require('./webpack-config/file-rules'),
+        require('./webpack-config/image-rules'),
+        require('./webpack-config/font-rules'),
       ],
     },
     mode,

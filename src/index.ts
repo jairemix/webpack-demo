@@ -2,6 +2,7 @@
 
 import './app.scss';
 import blueSquare from './images/blue-square.jpg';
+import catSvg from '@fortawesome/fontawesome-free/svgs/solid/cat.svg';
 import { join } from 'lodash-es';
 import * as $ from 'jquery';
 import { environment } from './env/env';
@@ -59,11 +60,19 @@ const $bodyWrap = $('body .wb-wrap');
     </section>
     <section class="my-4">
       <h4>This is an imported image</h4>
-      <img src="${blueSquare}" />
+      <img class="wb-image" src="${blueSquare}" />
     </section>
     <section class="my-4">
       <h4>This is an image imported with CSS</h4>
       <div class="wb-pink-square"></div>
+    </section>
+    <section class="my-4">
+      <h4>This is a CSS-based Font Awesome icon</h4>
+      <span class="fas fa-star"></span>
+    </section>
+    <section class="my-4">
+      <h4>This is an svg Font Awesome icon</h4>
+      <img class="wb-image" src="${catSvg}" />
     </section>
   `);
   $bodyWrap.append($sections);
