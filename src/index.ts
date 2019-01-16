@@ -28,10 +28,12 @@ console.log('environment', environment);
 (() => {
   const $sections = $(`
     <section class="my-3">
+      <h4>This is a styled button imported from SCSS</h4>
       <button class="btn btn-block btn-lg btn-primary">Bootstrap Button</button>
     </section>
     <section class="my-3">
-      <button class="btn btn-secondary btn-sm">${LANG.LOG_IN} from JSON</button>
+      <h4>This is some text imported from JSON</h4>
+      <button class="btn btn-secondary btn-sm">${LANG.LOG_IN}</button>
     </section>
     <section class="my-3">
       <h4>This is an imported image</h4>
