@@ -14,37 +14,59 @@ console.log('environment', environment);
   $('body').append($wrap);
 })();
 
+const $bodyWrap = $('body .wb-wrap');
+
 (() => {
-  const title = join(['It', 'works!'], ' ');
   const $block = $(`
-    <header class="my-3">
-      <div class="wb-title">${title}</div>
+    <header class="my-4">
+      <div class="wb-title">Webpack Demo</div>
     </header>
   `);
-  $('body .wb-wrap').append($block);
+  $bodyWrap.append($block);
 })();
 
+(() => {
+  class TextFormatter {
+    constructor (private text: string) {}
+    capitalize() {
+      const words = this.text.split(' ');
+      const capitalizedWords = words.map((w) => w.charAt(0).toUpperCase() + w.slice(1));
+      return capitalizedWords.join(' ');
+    }
+  }
+  const $section = $(`
+    <section class="my-4">
+      <h4>This is generated with Typescript-only features</h4>
+      <p>${new TextFormatter('typescript is great.').capitalize()}</p>
+    </section>
+  `);
+  $bodyWrap.append($section);
+})();
 
 (() => {
   const $sections = $(`
-    <section class="my-3">
-      <h4>This is a styled button imported from SCSS</h4>
+    <section class="my-4">
+      <h4>This is some text generated with a lodash tree-shaken import</h4>
+      <p>${join(['Lodash', 'Rules!'], ' ')}</p>
+    </section>
+    <section class="my-4">
+      <h4>This is a button styled with imported SCSS</h4>
       <button class="btn btn-block btn-lg btn-primary">Bootstrap Button</button>
     </section>
-    <section class="my-3">
+    <section class="my-4">
       <h4>This is some text imported from JSON</h4>
       <button class="btn btn-secondary btn-sm">${LANG.LOG_IN}</button>
     </section>
-    <section class="my-3">
+    <section class="my-4">
       <h4>This is an imported image</h4>
       <img src="${blueSquare}" />
     </section>
-    <section class="my-3">
-      <h4>This is an imported css image</h4>
+    <section class="my-4">
+      <h4>This is an image imported with CSS</h4>
       <div class="wb-pink-square"></div>
     </section>
   `);
-  $('body .wb-wrap').append($sections);
+  $bodyWrap.append($sections);
 })();
 
 (() => {
@@ -55,5 +77,5 @@ console.log('environment', environment);
     $section.append($(`<small class="d-block">Debugging enabled</small>`));
   }
 
-  $('body .wb-wrap').append($section);
+  $bodyWrap.append($section);
 })();
