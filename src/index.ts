@@ -11,8 +11,6 @@ import { environment } from './env/env';
 import LANG from './language/en.json';
 import { identity } from './shared';
 
-console.log('environment', environment);
-
 (() => {
   const $wrap = $(`<div class="p-4 wb-wrap"></div>`);
   $('body').append($wrap);
@@ -107,12 +105,14 @@ const $bodyWrap = $('body .wb-wrap');
 })();
 
 (() => {
-  const $section = $(`<section class="my-3"></section>`);
+  const $section = $(`<section class="my-3 text-muted"></section>`);
   $section.append($(`<small class="d-block">Mode is ${WEBPACK_ENV.MODE}</small>`));
 
   if (WEBPACK_ENV.DEBUG) {
-    $section.append($(`<small class="d-block">Debugging enabled</small>`));
+    $section.append($(`<small class="d-block">Debugging is enabled</small>`));
   }
+
+  $section.append($(`<small class="d-block ">Backend endpoint is ${environment.backendEndpoint}</small>`));
 
   $bodyWrap.append($section);
 })();
