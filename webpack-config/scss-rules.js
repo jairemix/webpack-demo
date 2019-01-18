@@ -29,7 +29,7 @@ module.exports = (hasSourceMaps) => {
       {
         loader: 'sass-loader',
         options: {
-          sourceMap: hasSourceMaps,
+          sourceMap: true, // always true because source maps are required by 'resolve-url-loader'
         },
       },
     ],
