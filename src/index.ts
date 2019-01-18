@@ -100,11 +100,10 @@ const $bodyWrap = $('body .wb-wrap');
   $section.append($button);
   $bodyWrap.append($section);
   const onClick = async () => {
-    const module = await import('./split1');
-    $button[0].innerText = module.getSomeText();
+    const { getSomeText } = await import('./split1/split1');
+    $button[0].innerText = getSomeText();
   };
   $button.on('click', onClick);
-
 })();
 
 (() => {

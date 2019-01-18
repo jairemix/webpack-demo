@@ -27,7 +27,6 @@ module.exports = (env) => {
     },
     entry: {
       index: './src/index.ts',
-      // split1: './src/split1.ts',
     },
     module: {
       rules: [
@@ -40,17 +39,6 @@ module.exports = (env) => {
     mode,
     optimization: {
       minimize: false,
-      // splitChunks: {
-      //   chunks: 'all',
-      //   minSize: 0,
-      //   maxAsyncRequests: 1000,
-      //   maxInitialRequests: 1000,
-      //   cacheGroups: {
-      //     default: {
-      //       reuseExistingChunk: true
-      //     }
-      //   },
-      // },
     },
     output: {
       chunkFilename: '[name].bundle.js',
@@ -60,7 +48,7 @@ module.exports = (env) => {
     plugins: [
       new CleanWebpackPlugin(['dist'], {
         exclude: ['shared.js'],
-        verbose: true,
+        verbose: false,
         dry: false,
       }),
       new HTMLWebpackPlugin({
