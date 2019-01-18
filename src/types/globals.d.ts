@@ -1,3 +1,5 @@
+// /// <reference path="./library.d.ts" />
+
 // fix for webpack environment variables
 declare const WEBPACK_ENV: {
   DEBUG: boolean;

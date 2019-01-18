@@ -1,5 +1,6 @@
 /// <reference path="./types/globals.d.ts" />
 
+import './polyfills';
 import './app.scss';
 import blueSquareImg from './images/blue-square.jpg';
 import catSvg from '@fortawesome/fontawesome-free/svgs/solid/cat.svg';
@@ -8,6 +9,7 @@ import { join } from 'lodash-es';
 import * as $ from 'jquery';
 import { environment } from './env/env';
 import LANG from './language/en.json';
+import { identity } from './shared';
 
 console.log('environment', environment);
 
@@ -49,8 +51,8 @@ const $bodyWrap = $('body .wb-wrap');
   const $sections = $(`
     <section class="my-4">
       <h4>This is some text generated with a lodash tree-shaken import</h4>
-      <p>${join(['Lodash', 'Rules!'], ' ')}</p>
-    </section>
+      <p>${identity(join(['Lodash', 'Rules!'], ' '))}</p>
+      </section>
     <section class="my-4">
       <h4>This is a button styled with imported SCSS</h4>
       <button class="btn btn-block btn-lg btn-primary">Bootstrap Button</button>
@@ -86,6 +88,24 @@ const $bodyWrap = $('body .wb-wrap');
     </section>
   `);
   $bodyWrap.append($sections);
+})();
+
+(() => {
+  const $button = $(`<button class="btn btn-info">Lazy Load Module!</button>`);
+  const $section = $(`
+    <section class="my-4">
+      <h4>This is will lazy load a module</h4>
+    </section>
+  `);
+  $section.append($button);
+  $bodyWrap.append($section);
+  const onClick = () => {
+    // scriptLoader.loadJS('split1.bundle.js').then(() => {
+    //   $button[0].innerText = (window as any).getSomeText();
+    // });
+  };
+  $button.on('click', onClick);
+
 })();
 
 (() => {
