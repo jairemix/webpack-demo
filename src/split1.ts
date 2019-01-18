@@ -1,7 +1,7 @@
 import { join } from 'lodash-es';
 import { identity } from './shared';
 
-const getSomeText = () => {
+export const getSomeText = () => {
   return identity(join([
     'I',
     'don\'t',
@@ -10,6 +10,4 @@ const getSomeText = () => {
   ], ' '));
 };
 
-(window as any).getSomeText = getSomeText;
-
-console.log('🛡 script1 loaded');
+console.log('🛡 split1 loaded!')

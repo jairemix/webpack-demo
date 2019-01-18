@@ -99,10 +99,9 @@ const $bodyWrap = $('body .wb-wrap');
   `);
   $section.append($button);
   $bodyWrap.append($section);
-  const onClick = () => {
-    // scriptLoader.loadJS('split1.bundle.js').then(() => {
-    //   $button[0].innerText = (window as any).getSomeText();
-    // });
+  const onClick = async () => {
+    const module = await import('./split1');
+    $button[0].innerText = module.getSomeText();
   };
   $button.on('click', onClick);
 
