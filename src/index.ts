@@ -10,6 +10,7 @@ import * as $ from 'jquery';
 import { environment } from './env/env';
 import LANG from './language/en.json';
 import { identity } from './shared';
+import { cardHTML } from './templates/card';
 
 (() => {
   const $wrap = $(`<div class="p-4 wb-wrap"></div>`);
@@ -83,6 +84,10 @@ const $bodyWrap = $('body .wb-wrap');
           Google Fonts
         </a>
       </p>
+    </section>
+    <section class="my-4">
+      <h4>This is HTML imported as a string</h4>
+      ${cardHTML}
     </section>
   `);
   $bodyWrap.append($sections);
