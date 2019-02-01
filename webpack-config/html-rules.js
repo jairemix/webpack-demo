@@ -1,5 +1,8 @@
 module.exports = {
-  test: /\.(html)$/,
+  test: /\.(html)$/, // str.endsWith('.html')
+  exclude: [
+    /index.html$/,
+  ],
   use: [
     'raw-loader',
     'html-minifier-loader',
