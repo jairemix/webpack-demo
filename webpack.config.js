@@ -28,8 +28,9 @@ module.exports = (env) => {
     },
     module: {
       rules: [
-        require('./webpack-config/ts-rules'),
+        require('./webpack-config/ng1.x-template-rules'),
         require('./webpack-config/html-rules'),
+        require('./webpack-config/ts-rules'),
         require('./webpack-config/scss-rules')(hasSourceMaps),
         require('./webpack-config/image-rules'),
         require('./webpack-config/font-rules'),
@@ -67,6 +68,9 @@ module.exports = (env) => {
     ],
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
+    },
+    resolveLoader: {
+      modules: ['node_modules', path.resolve(__dirname, 'webpack-config')]
     },
   };
 };

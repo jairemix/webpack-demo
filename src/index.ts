@@ -10,7 +10,8 @@ import * as $ from 'jquery';
 import { environment } from './env/env';
 import LANG from './language/en.json';
 import { identity } from './shared';
-import { cardHTML } from './templates/card';
+import { cardComponent } from './templates/card';
+import './ng1.x-templates/component.template.html';
 
 (() => {
   const $wrap = $(`<div class="p-4 wb-wrap"></div>`);
@@ -87,7 +88,7 @@ const $bodyWrap = $('body .wb-wrap');
     </section>
     <section class="my-4">
       <h4>This is HTML imported as a string</h4>
-      ${cardHTML}
+      ${cardComponent}
     </section>
   `);
   $bodyWrap.append($sections);

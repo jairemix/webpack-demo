@@ -1,3 +1,3 @@
-import cardHTML from './card.html';
+import cardComponent from './card.html';
 import './card.scss';
-export { cardHTML };
+export { cardComponent };
