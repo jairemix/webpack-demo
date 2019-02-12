@@ -11,7 +11,6 @@ import { environment } from './env/env';
 import LANG from './language/en.json';
 import { identity } from './shared';
 import { cardComponent } from './templates/card';
-import './ng1.x-templates/component.template.html';
 
 (() => {
   const $wrap = $(`<div class="p-4 wb-wrap"></div>`);

@@ -28,7 +28,6 @@ module.exports = (env) => {
     },
     module: {
       rules: [
-        require('./webpack-config/ng1.x-template-rules'),
         require('./webpack-config/html-rules'),
         require('./webpack-config/ts-rules'),
         require('./webpack-config/scss-rules')(hasSourceMaps),
