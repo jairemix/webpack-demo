@@ -11,6 +11,9 @@ import { environment } from './env/env';
 import LANG from './language/en.json';
 import { identity } from './shared';
 import { cardComponent } from './templates/card';
+import { of } from 'rxjs';
+
+of('rxjs works').subscribe((x) => console.log(x));
 
 (() => {
   const $wrap = $(`<div class="p-4 wb-wrap"></div>`);

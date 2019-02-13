@@ -4,6 +4,7 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "esNext",
+    "moduleResolution": "node",
     "target": "es5",
     "allowJs": true,
     "lib": [
